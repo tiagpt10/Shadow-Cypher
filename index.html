@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="pt-PT">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#090a12">
+    <meta name="description" content="Cifra e decifra mensagens com o Shadow Cipher.">
+    <title>Shadow Cipher — mensagens secretas</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div class="ambient ambient-one" aria-hidden="true"></div>
+    <div class="ambient ambient-two" aria-hidden="true"></div>
+    <main class="shell">
+      <header class="topbar">
+        <a class="brand" href="#top" aria-label="Shadow Cipher, início">
+          <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span>SHADOW<span class="brand-accent">CIPHER</span></span>
+        </a>
+        <span class="online"><span class="online-dot"></span> PROCESSAMENTO LOCAL</span>
+      </header>
+
+      <section class="hero" id="top">
+        <div class="eyebrow"><span class="eyebrow-line"></span> UM SEGREDO SÓ TEU</div>
+        <h1>Shadow <span>Cipher</span><i>.</i></h1>
+        <p>As tuas mensagens, protegidas por uma cifra personalizada.</p>
+      </section>
+
+      <section class="workspace" aria-label="Ferramenta de cifra e decifra">
+        <div class="card editor-card">
+          <div class="card-heading">
+            <div>
+              <span class="step-label">01 / OPERAÇÃO</span>
+              <h2>Escolhe o teu modo</h2>
+            </div>
+            <span class="lock-icon" aria-hidden="true">⌑</span>
+          </div>
+
+          <div class="mode-switch" role="tablist" aria-label="Modo de transformação">
+            <button class="mode-button active" id="decrypt-tab" type="button" role="tab" aria-selected="true" aria-controls="message-input" data-mode="decrypt">
+              <span class="mode-icon" aria-hidden="true">↙</span> Decifrar
+            </button>
+            <button class="mode-button" id="encrypt-tab" type="button" role="tab" aria-selected="false" aria-controls="message-input" data-mode="encrypt">
+              <span class="mode-icon" aria-hidden="true">↗</span> Cifrar
+            </button>
+          </div>
+
+          <div class="field-heading">
+            <label for="message-input" id="input-label">MENSAGEM CIFRADA</label>
+            <span id="char-count">0 caracteres</span>
+          </div>
+          <textarea id="message-input" spellcheck="false" autocomplete="off" placeholder="Cola aqui a mensagem que recebeste…" aria-describedby="input-hint"></textarea>
+          <div class="input-meta">
+            <span id="input-hint">As quebras de linha e os caracteres desconhecidos são preservados.</span>
+            <div class="input-actions">
+              <button class="text-button" id="example-button" type="button"><span aria-hidden="true">✳</span> Exemplo</button>
+              <button class="text-button clear-text-button" id="clear-button" type="button"><span aria-hidden="true">×</span> Limpar campos</button>
+            </div>
+          </div>
+
+          <button class="primary-button" id="transform-button" type="button">
+            <span id="transform-label">Decifrar mensagem</span>
+            <span class="button-arrow" aria-hidden="true">↗</span>
+          </button>
+          <div class="status-message" id="status-message" role="status" aria-live="polite"></div>
+        </div>
+
+        <div class="card result-card">
+          <div class="card-heading result-heading">
+            <div>
+              <span class="step-label">02 / RESULTADO</span>
+              <h2>A tua mensagem</h2>
+            </div>
+            <span class="result-state" id="result-state"><span></span> À ESPERA</span>
+          </div>
+          <div class="result-box" id="result-box" aria-live="polite" aria-label="Resultado da transformação">
+            <p class="result-placeholder" id="result-placeholder"><span class="placeholder-mark" aria-hidden="true">⌁</span>O resultado aparece aqui quando executares a cifra.</p>
+            <pre id="result-text" hidden></pre>
+          </div>
+          <div class="result-footer">
+            <span class="result-note"><span class="tiny-dot"></span> <span id="result-length">SEM RESULTADO</span></span>
+            <button class="copy-button" id="copy-button" type="button" disabled><span aria-hidden="true">▢</span> Copiar</button>
+          </div>
+
+          <aside class="accent-note">
+            <div class="note-icon" aria-hidden="true">✳</div>
+            <div>
+              <h3>Os acentos também têm código</h3>
+              <p>Usamos a letra cifrada seguida de um sufixo: <code>?</code> agudo, <code>!</code> grave ou cedilha, <code>?!</code> circunflexo e <code>!?</code> til.</p>
+              <p class="number-rule">Os algarismos avançam 7 posições: <code>0→7</code>, <code>1→8</code>, …, <code>9→6</code>.</p>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <footer class="page-footer">
+        <span>FEITO PARA MENSAGENS QUE MERECEM FICAR EM SEGREDO</span>
+        <span>SHADOW CIPHER <span class="footer-separator">/</span> 01</span>
+      </footer>
+    </main>
+  </body>
+</html>
